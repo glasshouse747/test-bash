@@ -30,6 +30,7 @@ echo x - ${x}
 #   LHS                     script                RHS
 
 echo z - $z
+#ABOVE LHS
 
 # LHS - z=20 bash 03-variables.sh
 # As an Environment Variable - export z=30; bash 03-variables.sh
@@ -37,3 +38,4 @@ echo z - $z
 
 n=$1
 echo n - $n
+#ABOVE RHS
