@@ -13,3 +13,8 @@ example () {
 }
 
 example
+
+
+# source /tmp/input -> to import files to script
+
+# If we declare a variable in Main Program, Function can access it and vice-versa
