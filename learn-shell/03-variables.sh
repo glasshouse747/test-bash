@@ -23,3 +23,10 @@ echo x - ${x}
 # Every variable is a string. Not in, long characters, booleans
 
 #Input Variables
+#                         <Variable Input>
+#   <Variable Input>            script        <Variable Input>
+
+#                       Environment from CLI
+#   LHS                     script                RHS
+
+echo z - $z
