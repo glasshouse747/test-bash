@@ -57,11 +57,9 @@ echo n - $n
 # Syn: var=$(command)
 DATE=$(date)
 echo Today Date - $DATE
-echo Today Date - ${DATE}
 
 #2. Arithmetic Substitution
 # Syn: var=$((arithmetic expression))
 
 ADD=$((100+200))
 echo Add of 100 + 200 is $ADD
-echo Add of 100 + 200 is ${ADD}
