@@ -11,3 +11,5 @@
 example () {
   echo Hello from example function
 }
+
+example
