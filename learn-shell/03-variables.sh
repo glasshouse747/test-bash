@@ -39,3 +39,13 @@ echo z - $z
 n=$1
 echo n - $n
 #ABOVE RHS (RIGHT HAND SIDE)
+
+#rhs - Special Variables
+# bash script 100 200 300
+# $0 - script
+# $1 - 100
+# $2 - 200
+# $3 - 300.....likewise we can go for $n
+# $* - 100 200 300 - All Inputs
+# $# - 3 - Number of Inputs
+
