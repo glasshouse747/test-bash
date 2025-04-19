@@ -1,4 +1,4 @@
-#if we assign a name to a set of data it is known as variable
+#If we assign a name to a set of data it is called as variable
 
 #Syntax: var=data
 
