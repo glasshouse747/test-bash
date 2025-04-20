@@ -60,12 +60,12 @@ if [ expression ]; then
 amount=$1
 currency=$2
 
-if [ "$currency" == "usd" ]; then
+if [ "$currency" == usd ]; then
     inr=$(($1*85))
     echo USD currency in INR - $inr
 fi
 
-if [ "$currency" == "aud" ]; then
+if [ "$currency" == aud ]; then
     inr=$(($1*55))
     echo AUD currency in INR - $inr
 fi
