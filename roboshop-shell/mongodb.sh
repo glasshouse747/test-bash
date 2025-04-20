@@ -1,4 +1,4 @@
-component_name-mongodb
+component_name=mongodb
 source common.sh
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo

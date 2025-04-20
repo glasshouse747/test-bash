@@ -1,8 +1,8 @@
 pwd=$(pwd)
 
-app_pre_setup(){
+app_pre_setup() {
   cp ${pwd}/${component_name}.service /etc/systemd/system/${component_name}.service
-  useradd roboshop
+  id roboshop || useradd roboshop
   rm -rf /app
   mkdir /app
   curl -L -o /tmp/${component_name}.zip https://roboshop-artifacts.s3.amazonaws.com/${component_name}.zip
@@ -22,7 +22,7 @@ java() {
   dnf install maven -y
   app_pre_setup
   mvn clean package
-  mv target/${component_name}.jar ${component_name}.jar
+  mv target/${component_name}-1.0.jar ${component_name}.jar
 }
 
 nodejs() {
