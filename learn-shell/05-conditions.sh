@@ -71,3 +71,13 @@ if [ "$currency" == aud ]; then
 fi
 
 # In expressions always use double quotes for variables. For numbers it is not necessary
+
+# Expressions can be logical combined as well
+# -a - AND
+# -o - OR
+
+# expression1   expression2     AND     OR
+# true          true            true    true
+# true          false           false   true
+# false         true            false   true
+# false         false           false   false
