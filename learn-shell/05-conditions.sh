@@ -6,8 +6,8 @@
 
 # 1 Simple IF
 
-Syntax:
-if [ expression ]; then
+#Syntax:
+#if [ expression ]; then
 # commands
 #fi
 
