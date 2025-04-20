@@ -21,3 +21,11 @@ while [ $x -gt 0 ]; do
     echo loop in while command
     x=$(($x-1))
 done
+
+for fruit in apple banna orange; do
+    echo Fruit Name - $fruit
+done
+
+
+
+
