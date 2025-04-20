@@ -70,5 +70,4 @@ if [ "$currency" == aud ]; then
     echo AUD currency in INR - $inr
 fi
 
-
-
+# In expressions always use double quotes for variables. For numbers it is not necessary
