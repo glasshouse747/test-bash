@@ -5,8 +5,8 @@ app_pre_setup() {
   id roboshop || useradd roboshop
   rm -rf /app
   mkdir /app
-  curl -L -o /tmp/${component_name}.zip https://roboshop-artifacts.s3.amazonaws.com/${component_name}.zip
   cd /app
+  curl -L -o /tmp/${component_name}.zip https://roboshop-artifacts.s3.amazonaws.com/${component_name}-v3.zip
   unzip /tmp/${component_name}.zip
 }
 
