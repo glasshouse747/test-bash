@@ -62,7 +62,7 @@ currency=$2
 
 if [ "$currency" == "usd" ]; then
     inr=$(($1*85))
-    echo currency in INR - $inr
+    echo USD currency in INR - $inr
 fi
 
 if [ "$currency" == "aud" ]; then
