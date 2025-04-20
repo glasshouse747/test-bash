@@ -26,6 +26,8 @@ for fruit in apple banna orange; do
     echo Fruit Name - $fruit
 done
 
-
+for username in steve john raju; do
+    echo Adding User - $username
+done
 
 
