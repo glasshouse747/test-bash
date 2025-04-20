@@ -11,7 +11,7 @@
 # commands
 #fi
 
-#@ 2. If-Else
+# 2. If-Else
 
 #Syntax
 #if [ expression ]; then
