@@ -11,7 +11,13 @@
 #done
 #
 
+#x=10
+#while [ $x -gt 0 ]; do
+#    echo loop in while command
+#done
+
 x=10
 while [ $x -gt 0 ]; do
     echo loop in while command
+    x=$(($x-1))
 done
