@@ -21,3 +21,7 @@
         msg: url - {{ url }}
       vars:
         url: tasks.example.com
+
+# Since the variable in the second example above is declared at task level, then only one task can access that variable
+
+# The same variable can be declared from command line using -e option
