@@ -47,3 +47,24 @@
     - name: Type of variables
       ansible.builtin.debug:
         msg: x - {{ x }}, y - {{ y }}, z - {{ z }}
+
+# Variable Declaration Types
+# 1. Normal
+# 2. List
+# 3. Map
+
+- name: Variable Declaration types
+  hosts:
+  connection:
+  vars:
+    x: abc
+    y:
+      - 100
+      - 200
+    z:
+      url: sample
+      domain: example.com
+  tasks:
+    - name:
+      ansible.builtin.debug:
+        msg: x - {{ x }}, y - {{ y[0] }}, z - {{ z["domain"] }}
