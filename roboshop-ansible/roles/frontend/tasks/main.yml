@@ -1,6 +1,6 @@
 - name: Check Nginx Version
   ansible.builtin.debug:
-    msg: nginx --version
+    msg: nginx -v
 
 #dnf module disable nginx -y
 #dnf module enable nginx:1.24 -y
