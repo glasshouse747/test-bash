@@ -17,3 +17,9 @@ two:
 # This syntax will print only output
 
 # Make supports only tabs spaces in indentation, simple spaces will not help
+
+git-pull:
+	git pull
+
+three: git-pull
+	eecho Hello - Three
