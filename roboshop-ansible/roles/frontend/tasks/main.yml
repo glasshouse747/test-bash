@@ -1,14 +1,15 @@
-- name: Get NGINX version
-  hosts: your_target_hosts
-  tasks:
-    - name: Check nginx version
-      shell: nginx -v
-      register: nginx_version
-      ignore_errors: yes
+#- name: Check Nginx Version
+#  ansible.builtin.debug:
+#    msg: nginx -v
 
-    - name: Print nginx version
-      debug:
-        msg: "{{ nginx_version.stderr }}"
+- name: Check nginx version
+  shell: nginx -v
+  register: nginx_version
+  ignore_errors: yes
+
+- name: Print nginx version
+  debug:
+    msg: "{{ nginx_version.stderr }}"
 
 #dnf module disable nginx -y
 #dnf module enable nginx:1.24 -y
