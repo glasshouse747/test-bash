@@ -15,5 +15,6 @@
 #unzip /tmp/frontend.zip
 
 - name: Disable Default Nginx & Enable Nginx 1.24
+  bcecome: yes
   ansible.builtin.shell: dnf module disable nginx -y; dnf module enable nginx:1.24 -y
 
