@@ -22,4 +22,4 @@ git-pull:
 	git pull
 
 three: git-pull
-	eecho Hello - Three
+	echo Hello - Three
