@@ -9,3 +9,15 @@
     - name: Print url
       ansible.builtin.debug:
         msg: url - {{ url }}
+
+# Since the variable is declared on play level, then all the test access that variable. Hence, we can declare task level variables. See the example below:
+
+- name: Play level variables
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Print url
+      ansible.builtin.debug:
+        msg: url - {{ url }}
+        vars:
+          url: tasks.example.com
