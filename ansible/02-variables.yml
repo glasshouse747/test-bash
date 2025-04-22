@@ -41,7 +41,7 @@
   connection: local
   vars:
     x: abc
-    y: 100
+    y: 100 # we can also use float values like 1.20001
     z: true
   tasks:
     - name: Type of variables
