@@ -53,7 +53,7 @@
 # 2. List
 # 3. Map
 
-- name: Variable Declaration types
+- name: Variable Declaration Types
   hosts: localhost
   connection: local
   vars:
