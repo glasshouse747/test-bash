@@ -4,7 +4,7 @@
     dest: /etc/systemd/system/{{ app_name }}.service
 
 - name: Start Service
-  ansible.systemd.service:
+  ansible.systemd_service:
     name: "{{ app_name }}"
     state: restarted
     enabled: yes
