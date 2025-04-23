@@ -5,7 +5,7 @@
 
 - name: Start Service
   ansible.systemd.service:
-    name: {{ app_name }}
+    name: "{{ app_name }}"
     state: restarted
     enabled: yes
     daemon-reload: yes
