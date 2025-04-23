@@ -1,6 +1,6 @@
 - name: Install MySQL Server
   ansible.builtin.dnf:
-    name: mysql-sever
+    name: mysql-server
     state: latest
 
 - name: Start MySQL
