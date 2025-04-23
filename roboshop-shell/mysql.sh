@@ -3,8 +3,8 @@
     name: mysql-sever
     state: latest
 
-- name:
-  ansible.systemd_service:
+- name: Start MySQL
+  ansible.builtin.systemd_service:
     name: mysqld
     state: latest
     enabled: yes
