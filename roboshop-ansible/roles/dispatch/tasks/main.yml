@@ -1,0 +1,9 @@
+- name: Run Golang
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: golang
+
+- name: Run systemd_setup
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd_setup
