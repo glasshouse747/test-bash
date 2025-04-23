@@ -8,14 +8,29 @@
     name: mysql
     state: latest
 
-- name: Load Schema
-  ansible.builtin.shell: mysql -h mysql-dev.mydevops.shop -uroot -pRoboShop@1 < /app/db/schema.sql
+#- name: Load Schema
+#  ansible.builtin.shell: mysql -h mysql-dev.mydevops.shop -uroot -pRoboShop@1 < /app/db/schema.sql
+#
+#- name: Load app-user
+#  ansible.builtin.shell: mysql -h mysql-dev.mydevops.shop -uroot -pRoboShop@1 < /app/db/app-user.sql
+#
+#- name: Load master-data
+#  ansible.builtin.shell: mysql -h mysql-dev.mydevops.shop -uroot -pRoboShop@1 < /app/db/master-data.sql
 
-- name: Load app-user
-  ansible.builtin.shell: mysql -h mysql-dev.mydevops.shop -uroot -pRoboShop@1 < /app/db/app-user.sql
+- name: Run SQL scripts
+  vars:
+  sql_files:
+    - schema.sql
+    - app-user.sql
+    - master-data.sql
 
-- name: Load master-data
-  ansible.builtin.shell: mysql -h mysql-dev.mydevops.shop -uroot -pRoboShop@1 < /app/db/master-data.sql
+  tasks:
+    - name: Load All SQL Schemas and Data Files
+      shell: mysql -h mysql-dev.mydevops.shop -uroot -pRoboShop@1 < /app/db/{{ item }}
+      loop: "{{ sql_files }}"
+      args:
+        executable: /bin/bash
+
 
 - name: Run systemd_setup
   ansible.builtin.include_role:
