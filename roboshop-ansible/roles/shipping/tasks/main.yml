@@ -19,10 +19,10 @@
 
 - name: Run SQL scripts
   vars:
-  sql_files:
-    - schema.sql
-    - app-user.sql
-    - master-data.sql
+    sql_files:
+      - schema.sql
+      - app-user.sql
+      - master-data.sql
 
   tasks:
     - name: Load All SQL Schemas and Data Files
