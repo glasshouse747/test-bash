@@ -8,7 +8,7 @@
 
 - name: Load App Pre-Requisites
   ansible.builtin.include_tasks:
-    file: app_pre_setup.yaml
+    file: app_pre_setup.yml
 
 - name: Download App Dependencies
   ansible.builtin.shell: npm install
