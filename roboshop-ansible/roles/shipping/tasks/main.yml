@@ -17,7 +17,6 @@
 - name: Load master-data
   ansible.builtin.shell: mysql -h mysql-dev.mydevops.shop -uroot -pRoboShop@1 < /app/db/master-data.sql
 
-
 - name: Run systemd_setup
   ansible.builtin.include_role:
     name: common
