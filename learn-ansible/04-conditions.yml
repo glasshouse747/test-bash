@@ -22,5 +22,5 @@
 
     - name: Number comparison
       ansible.builtin.debug:
-        msg: "{{ countx }}" is greater than 0
+        msg: "{{ countx }} is greater than 0"
       when: countx > 0
