@@ -6,5 +6,9 @@
   tasks:
     - name: Print Vegetable Name
       ansible.builtin.debug:
+        msg: Vegetable Names - Carrot
+
+    - name: Print Vegetable Name
+      ansible.builtin.debug:
         msg: Fruit Names - Orange
 
