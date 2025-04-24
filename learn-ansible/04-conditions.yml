@@ -18,3 +18,9 @@
       ansible.builtin.debug:
         msg: Fruit Names - Orange
       when: vegetables | bool
+      # | bool is making sure that vegetables variable is boolean
+
+    - name: Number comparison
+      ansible.builtin.debug:
+        msg: "{{ countx }}" is greater than 0
+      when: countx > 0
