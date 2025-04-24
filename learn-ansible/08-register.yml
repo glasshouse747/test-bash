@@ -1,0 +1,11 @@
+- name: Loop Demo
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: uptime
+      ansible.builtin.shell: uptime
+      register: out
+
+    - name: uptime
+      ansible.builtin.debug:
+        msg: "{{ out }}"
