@@ -14,3 +14,7 @@
         msg: Fruit Names - Orange
       when: fruits == "yes"
 
+    - name: Print Vegetable Name -1
+      ansible.builtin.debug:
+        msg: Fruit Names - Orange
+      when: vegetables | bool
