@@ -9,3 +9,7 @@
     - name: Print IP
       ansible.builtin.debug:
         msg: "{{ ansible_default_ipv4 }}"
+
+    - name: Print IP
+      ansible.builtin.debug:
+        msg: "{{ ansible_default_ipv4.address }}"
