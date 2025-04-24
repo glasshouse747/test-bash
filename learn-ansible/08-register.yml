@@ -6,6 +6,6 @@
       ansible.builtin.shell: uptime
       register: out
 
-    - name: Print uptime
+    - name: Print out
       ansible.builtin.debug:
         msg: "{{ out }}"
