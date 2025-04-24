@@ -8,3 +8,10 @@
       loop:
         - Carrot
         - Tomato
+
+    - name: Print Name and Quantity
+      ansible.builtin.debug:
+        msg: Vegetable Name - {{ item["name"] }}, Quantity - {{ item.quantity }}
+      loop:
+        - { name: Carrot, quantity: 100 }
+        - { name: Carrot, quantity: 200 }
