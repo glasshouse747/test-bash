@@ -1,0 +1,7 @@
+- name: Fact Demo
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Print Fact
+      ansible.builtin.debug:
+        msg: "{{ ansible_virtualization_type }}"
