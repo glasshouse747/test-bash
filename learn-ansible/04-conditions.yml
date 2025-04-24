@@ -7,8 +7,10 @@
     - name: Print Vegetable Name
       ansible.builtin.debug:
         msg: Vegetable Names - Carrot
+      when: vegetables == "yes"
 
     - name: Print Vegetable Name
       ansible.builtin.debug:
         msg: Fruit Names - Orange
+      when: fruits == "yes"
 
