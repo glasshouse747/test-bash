@@ -10,6 +10,6 @@
       ansible.builtin.debug:
         msg: "{{ ansible_default_ipv4 }}"
 
-    - name: Print IP (Internet IP Address Included)
+    - name: Print IP (Filter Local IP Address)
       ansible.builtin.debug:
         msg: "{{ ansible_default_ipv4.address }}"
