@@ -21,6 +21,7 @@ resource "azurerm_network_interface" "frontend" {
     name                          = "frontend"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.frontend.id
   }
 }
 
@@ -78,6 +79,7 @@ resource "azurerm_network_interface" "mongodb" {
     name                          = "mongodb"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.mongodb.id
   }
 }
 
@@ -135,6 +137,7 @@ resource "azurerm_network_interface" "catalogue" {
     name                          = "catalogue"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.catalogue.id
   }
 }
 
@@ -192,6 +195,7 @@ resource "azurerm_network_interface" "redis" {
     name                          = "redis"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.redis.id
   }
 }
 
@@ -249,6 +253,7 @@ resource "azurerm_network_interface" "user" {
     name                          = "user"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.user.id
   }
 }
 
@@ -306,6 +311,7 @@ resource "azurerm_network_interface" "cart" {
     name                          = "cart"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.cart.id
   }
 }
 
@@ -363,6 +369,7 @@ resource "azurerm_network_interface" "mysql" {
     name                          = "mysql"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.mysql.id
   }
 }
 
@@ -420,6 +427,7 @@ resource "azurerm_network_interface" "shipping" {
     name                          = "shipping"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.shipping.id
   }
 }
 
@@ -477,6 +485,7 @@ resource "azurerm_network_interface" "rabbitmq" {
     name                          = "rabbitmq"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.rabbitmq.id
   }
 }
 
@@ -534,6 +543,7 @@ resource "azurerm_network_interface" "payment" {
     name                          = "payment"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.payment.id
   }
 }
 
@@ -591,6 +601,7 @@ resource "azurerm_network_interface" "dispatch" {
     name                          = "dispatch"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.dispatch.id
   }
 }
 
