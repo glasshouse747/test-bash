@@ -73,7 +73,6 @@ resource "azurerm_network_interface" "mongodb" {
   }
 }
 
-
 resource "azurerm_virtual_machine" "mongodb" {
   name                = "mongodb"
   location            = "UK West"
@@ -122,7 +121,6 @@ resource "azurerm_network_interface" "catalogue" {
     private_ip_address_allocation = "Dynamic"
   }
 }
-
 
 resource "azurerm_virtual_machine" "catalogue" {
   name                = "catalogue"
@@ -174,12 +172,11 @@ resource "azurerm_network_interface" "redis" {
   }
 }
 
-
 resource "azurerm_virtual_machine" "redis" {
   name                = "redis"
   location            = "UK West"
   resource_group_name = "my-first-rg"
-  network_interface_ids = [azurerm_network_interface.catalogue.id]
+  network_interface_ids = [azurerm_network_interface.redis.id]
   vm_size             = "Standard_B2s"
 
   delete_os_disk_on_termination = true
@@ -203,7 +200,6 @@ resource "azurerm_virtual_machine" "redis" {
   }
 }
 
-
 # USER
 
 resource "azurerm_public_ip" "user" {
@@ -224,7 +220,6 @@ resource "azurerm_network_interface" "user" {
     private_ip_address_allocation = "Dynamic"
   }
 }
-
 
 resource "azurerm_virtual_machine" "user" {
   name                = "user"
@@ -276,7 +271,6 @@ resource "azurerm_network_interface" "cart" {
   }
 }
 
-
 resource "azurerm_virtual_machine" "cart" {
   name                = "cart"
   location            = "UK West"
@@ -326,7 +320,6 @@ resource "azurerm_network_interface" "mysql" {
   }
 }
 
-
 resource "azurerm_virtual_machine" "mysql" {
   name                = "mysql"
   location            = "UK West"
@@ -355,7 +348,6 @@ resource "azurerm_virtual_machine" "mysql" {
   }
 }
 
-
 # SHIPPING
 
 resource "azurerm_public_ip" "shipping" {
@@ -376,7 +368,6 @@ resource "azurerm_network_interface" "shipping" {
     private_ip_address_allocation = "Dynamic"
   }
 }
-
 
 resource "azurerm_virtual_machine" "shipping" {
   name                = "shipping"
@@ -406,7 +397,6 @@ resource "azurerm_virtual_machine" "shipping" {
   }
 }
 
-
 # RABBITMQ
 
 resource "azurerm_public_ip" "rabbitmq" {
@@ -427,7 +417,6 @@ resource "azurerm_network_interface" "rabbitmq" {
     private_ip_address_allocation = "Dynamic"
   }
 }
-
 
 resource "azurerm_virtual_machine" "rabbitmq" {
   name                = "rabbitmq"
@@ -478,7 +467,6 @@ resource "azurerm_network_interface" "payment" {
   }
 }
 
-
 resource "azurerm_virtual_machine" "payment" {
   name                = "payment"
   location            = "UK West"
@@ -527,7 +515,6 @@ resource "azurerm_network_interface" "dispatch" {
     private_ip_address_allocation = "Dynamic"
   }
 }
-
 
 resource "azurerm_virtual_machine" "dispatch" {
   name                = "dispatch"
