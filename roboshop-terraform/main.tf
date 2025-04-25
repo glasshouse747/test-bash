@@ -3,6 +3,27 @@ provider "azurerm" {
   subscription_id = "eb986b09-9743-4aa1-b10f-53da04d8708c"
 }
 
+# VIRTUAL NETWORK
+
+resource "azurerm_virtual_network" "shared-network" {
+  name                = "shared-network"
+  address_space       = ["10.0.0.0/16"]
+  location            = "UK West"
+  resource_group_name = "my-first-rg"
+}
+
+resource "azurerm_subnet" "shared-subnet" {
+  name                 = "shared-subnet"
+  resource_group_name  = "my-first-rg"
+  virtual_network_name = azurerm_virtual_network.shared-network.id
+  address_prefixes = ["10.0.1.0/24"]
+}
+
+resource "azurerm_subnet_network_security_group_association" "shared-nsg" {
+  subnet_id = azurerm_subnet.shared-subnet.id
+  network_security_group_id = azurerm_network_security_group.shared-nsg.id
+}
+
 # NETWORK SECURITY GROUP
 
 resource "azurerm_network_security_group" "shared-nsg" {
@@ -47,10 +68,7 @@ resource "azurerm_network_security_group" "shared-nsg" {
   }
 }
 
-resource "azurerm_subnet_network_security_group_association" "shared-nsg" {
-  subnet_id                 = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
-  network_security_group_id = azurerm_network_security_group.shared-nsg.id
-}
+
 
 # FRONTEND
 
