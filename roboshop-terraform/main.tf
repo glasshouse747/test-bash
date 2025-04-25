@@ -52,6 +52,14 @@ resource "azurerm_virtual_machine" "frontend" {
   }
 }
 
+resource "azurerm_dns_a_record" "frontend" {
+  name                = "frontend-dev"
+  zone_name           = "mydevops.shop"
+  resource_group_name = "my-first-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.frontend.private_ip_address]
+}
+
 # MONGDB
 
 resource "azurerm_public_ip" "mongodb" {
@@ -99,6 +107,14 @@ resource "azurerm_virtual_machine" "mongodb" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
+}
+
+resource "azurerm_dns_a_record" "mongodb" {
+  name                = "mongodb-dev"
+  zone_name           = "mydevops.shop"
+  resource_group_name = "my-first-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.mongodb.private_ip_address]
 }
 
 # CATALOGUE
@@ -150,6 +166,13 @@ resource "azurerm_virtual_machine" "catalogue" {
   }
 }
 
+resource "azurerm_dns_a_record" "catalogue" {
+  name                = "catalogue-dev"
+  zone_name           = "mydevops.shop"
+  resource_group_name = "my-first-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.catalogue.private_ip_address]
+}
 
 # REDIS
 
@@ -198,6 +221,14 @@ resource "azurerm_virtual_machine" "redis" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
+}
+
+resource "azurerm_dns_a_record" "redis" {
+  name                = "redis-dev"
+  zone_name           = "mydevops.shop"
+  resource_group_name = "my-first-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.redis.private_ip_address]
 }
 
 # USER
@@ -249,6 +280,13 @@ resource "azurerm_virtual_machine" "user" {
   }
 }
 
+resource "azurerm_dns_a_record" "user" {
+  name                = "user-dev"
+  zone_name           = "mydevops.shop"
+  resource_group_name = "my-first-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.user.private_ip_address]
+}
 
 # CART
 
@@ -297,6 +335,14 @@ resource "azurerm_virtual_machine" "cart" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
+}
+
+resource "azurerm_dns_a_record" "cart" {
+  name                = "cart-dev"
+  zone_name           = "mydevops.shop"
+  resource_group_name = "my-first-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.cart.private_ip_address]
 }
 
 # MYSQL
@@ -348,6 +394,14 @@ resource "azurerm_virtual_machine" "mysql" {
   }
 }
 
+resource "azurerm_dns_a_record" "mysql" {
+  name                = "mysql-dev"
+  zone_name           = "mydevops.shop"
+  resource_group_name = "my-first-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.mysql.private_ip_address]
+}
+
 # SHIPPING
 
 resource "azurerm_public_ip" "shipping" {
@@ -395,6 +449,14 @@ resource "azurerm_virtual_machine" "shipping" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
+}
+
+resource "azurerm_dns_a_record" "shipping" {
+  name                = "shipping-dev"
+  zone_name           = "mydevops.shop"
+  resource_group_name = "my-first-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.shipping.private_ip_address]
 }
 
 # RABBITMQ
@@ -446,6 +508,14 @@ resource "azurerm_virtual_machine" "rabbitmq" {
   }
 }
 
+resource "azurerm_dns_a_record" "rabbitmq" {
+  name                = "rabbitmq-dev"
+  zone_name           = "mydevops.shop"
+  resource_group_name = "my-first-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.rabbitmq.private_ip_address]
+}
+
 # PAYMENT
 
 resource "azurerm_public_ip" "payment" {
@@ -495,6 +565,14 @@ resource "azurerm_virtual_machine" "payment" {
   }
 }
 
+resource "azurerm_dns_a_record" "payment" {
+  name                = "payment-dev"
+  zone_name           = "mydevops.shop"
+  resource_group_name = "my-first-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.payment.private_ip_address]
+}
+
 # DISPATCH
 
 resource "azurerm_public_ip" "dispatch" {
@@ -542,4 +620,12 @@ resource "azurerm_virtual_machine" "dispatch" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
+}
+
+resource "azurerm_dns_a_record" "dispatch" {
+  name                = "dispatch-dev"
+  zone_name           = "mydevops.shop"
+  resource_group_name = "my-first-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.dispatch.private_ip_address]
 }
