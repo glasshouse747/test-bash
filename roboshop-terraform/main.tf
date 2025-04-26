@@ -69,8 +69,6 @@ resource "azurerm_network_security_group" "shared_nsg" {
   }
 }
 
-
-
 # FRONTEND
 
 resource "azurerm_public_ip" "frontend" {
