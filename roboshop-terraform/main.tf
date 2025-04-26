@@ -87,7 +87,7 @@ resource "azurerm_network_interface" "frontend" {
 
   ip_configuration {
     name                          = "frontend"
-    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+    subnet_id                     = azurerm_subnet.shared_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.frontend.id
   }
@@ -126,7 +126,7 @@ resource "azurerm_dns_a_record" "frontend" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_network_interface.frontend.private_ip_address]
+  records             = [azurerm_public_ip.frontend.ip_address]
 }
 
 # MONGODB
@@ -145,7 +145,7 @@ resource "azurerm_network_interface" "mongodb" {
 
   ip_configuration {
     name                          = "mongodb"
-    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+    subnet_id                     = azurerm_subnet.shared_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.mongodb.id
   }
@@ -184,7 +184,7 @@ resource "azurerm_dns_a_record" "mongodb" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_network_interface.mongodb.private_ip_address]
+  records             = [azurerm_public_ip.mongodb.ip_address]
 }
 
 # CATALOGUE
@@ -203,7 +203,7 @@ resource "azurerm_network_interface" "catalogue" {
 
   ip_configuration {
     name                          = "catalogue"
-    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+    subnet_id                     = azurerm_subnet.shared_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.catalogue.id
   }
@@ -242,7 +242,7 @@ resource "azurerm_dns_a_record" "catalogue" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_network_interface.catalogue.private_ip_address]
+  records             = [azurerm_public_ip.catalogue.ip_address]
 }
 
 # REDIS
@@ -261,7 +261,7 @@ resource "azurerm_network_interface" "redis" {
 
   ip_configuration {
     name                          = "redis"
-    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+    subnet_id                     = azurerm_subnet.shared_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.redis.id
   }
@@ -300,7 +300,7 @@ resource "azurerm_dns_a_record" "redis" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_network_interface.redis.private_ip_address]
+  records             = [azurerm_public_ip.redis.ip_address]
 }
 
 # USER
@@ -319,7 +319,7 @@ resource "azurerm_network_interface" "user" {
 
   ip_configuration {
     name                          = "user"
-    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+    subnet_id                     = azurerm_subnet.shared_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.user.id
   }
@@ -358,7 +358,7 @@ resource "azurerm_dns_a_record" "user" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_network_interface.user.private_ip_address]
+  records             = [azurerm_public_ip.user.ip_address]
 }
 
 # CART
@@ -377,7 +377,7 @@ resource "azurerm_network_interface" "cart" {
 
   ip_configuration {
     name                          = "cart"
-    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+    subnet_id                     = azurerm_subnet.shared_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.cart.id
   }
@@ -416,7 +416,7 @@ resource "azurerm_dns_a_record" "cart" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_network_interface.cart.private_ip_address]
+  records             = [azurerm_public_ip.cart.ip_address]
 }
 
 # MYSQL
@@ -435,7 +435,7 @@ resource "azurerm_network_interface" "mysql" {
 
   ip_configuration {
     name                          = "mysql"
-    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+    subnet_id                     = azurerm_subnet.shared_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.mysql.id
   }
@@ -474,7 +474,7 @@ resource "azurerm_dns_a_record" "mysql" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_network_interface.mysql.private_ip_address]
+  records             = [azurerm_public_ip.mysql.ip_address]
 }
 
 # SHIPPING
@@ -493,7 +493,7 @@ resource "azurerm_network_interface" "shipping" {
 
   ip_configuration {
     name                          = "shipping"
-    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+    subnet_id                     = azurerm_subnet.shared_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.shipping.id
   }
@@ -532,7 +532,7 @@ resource "azurerm_dns_a_record" "shipping" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_network_interface.shipping.private_ip_address]
+  records             = [azurerm_public_ip.shipping.ip_address]
 }
 
 # RABBITMQ
@@ -551,7 +551,7 @@ resource "azurerm_network_interface" "rabbitmq" {
 
   ip_configuration {
     name                          = "rabbitmq"
-    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+    subnet_id                     = azurerm_subnet.shared_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.rabbitmq.id
   }
@@ -590,7 +590,7 @@ resource "azurerm_dns_a_record" "rabbitmq" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_network_interface.rabbitmq.private_ip_address]
+  records             = [azurerm_public_ip.rabbitmq.ip_address]
 }
 
 # PAYMENT
@@ -609,7 +609,7 @@ resource "azurerm_network_interface" "payment" {
 
   ip_configuration {
     name                          = "payment"
-    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+    subnet_id                     = azurerm_subnet.shared_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.payment.id
   }
@@ -648,7 +648,7 @@ resource "azurerm_dns_a_record" "payment" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_network_interface.payment.private_ip_address]
+  records             = [azurerm_public_ip.payment.ip_address]
 }
 
 # DISPATCH
@@ -667,7 +667,7 @@ resource "azurerm_network_interface" "dispatch" {
 
   ip_configuration {
     name                          = "dispatch"
-    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+    subnet_id                     = azurerm_subnet.shared_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.dispatch.id
   }
@@ -706,5 +706,5 @@ resource "azurerm_dns_a_record" "dispatch" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_network_interface.dispatch.private_ip_address]
+  records             = [azurerm_public_ip.dispatch.ip_address]
 }
