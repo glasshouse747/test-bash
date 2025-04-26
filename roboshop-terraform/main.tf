@@ -298,7 +298,7 @@ resource "azurerm_dns_a_record" "redis" {
   zone_name           = "mydevops.shop"
   resource_group_name = "my-first-rg"
   ttl                 = 3
-  records             = [azurerm_public_ip.redis.ip_address]
+  records             = [azurerm_network_interface.redis.private_ip_address]
 }
 
 # USER
