@@ -128,7 +128,7 @@ resource "azurerm_dns_a_record" "frontend" {
   records             = [azurerm_network_interface.frontend.private_ip_address]
 }
 
-# MONGDB
+# MONGODB
 
 resource "azurerm_public_ip" "mongodb" {
   name                = "mongodb-ip"
