@@ -17,6 +17,7 @@ resource "azurerm_subnet" "shared_subnet" {
   resource_group_name  = "my-first-rg"
   virtual_network_name = "shared-network"
   address_prefixes = ["10.0.1.0/24"]
+  depends_on = [azurerm_virtual_network.shared_network]
 }
 
 resource "azurerm_subnet_network_security_group_association" "shared_nsg" {
