@@ -10,6 +10,11 @@ data "azurerm_network_security_group" "existing_nsg" {
   resource_group_name = "my-first-rg"
 }
 
+resource "azurerm_subnet_network_security_group_association" "existing_nsg" {
+  subnet_id = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
+  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
+}
+
 # FRONTEND
 
 resource "azurerm_public_ip" "frontend" {
