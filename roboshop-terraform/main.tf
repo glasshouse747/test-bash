@@ -3,72 +3,6 @@ provider "azurerm" {
   subscription_id = "eb986b09-9743-4aa1-b10f-53da04d8708c"
 }
 
-# VIRTUAL NETWORK
-
-resource "azurerm_virtual_network" "shared_network" {
-  name                = "shared-network"
-  address_space       = ["10.0.0.0/16"]
-  location            = "UK West"
-  resource_group_name = "my-first-rg"
-}
-
-resource "azurerm_subnet" "shared_subnet" {
-  name                 = "shared-subnet"
-  resource_group_name  = "my-first-rg"
-  virtual_network_name = "shared-network"
-  address_prefixes = ["10.0.1.0/24"]
-  depends_on = [azurerm_virtual_network.shared_network]
-}
-
-resource "azurerm_subnet_network_security_group_association" "shared_nsg" {
-  subnet_id = azurerm_subnet.shared_subnet.id
-  network_security_group_id = azurerm_network_security_group.shared_nsg.id
-}
-
-# NETWORK SECURITY GROUP
-
-resource "azurerm_network_security_group" "shared_nsg" {
-  name                = "shared-nsg"
-  location            = "UK West"
-  resource_group_name = "my-first-rg"
-
-  security_rule {
-    name                       = "allow-ssh"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "22"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-
-  security_rule {
-    name                       = "allow-http"
-    priority                   = 101
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "80"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-
-  security_rule {
-    name                       = "allow-https"
-    priority                   = 102
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "443"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-}
-
 # FRONTEND
 
 resource "azurerm_public_ip" "frontend" {
@@ -85,7 +19,7 @@ resource "azurerm_network_interface" "frontend" {
 
   ip_configuration {
     name                          = "frontend"
-    subnet_id                     = azurerm_subnet.shared_subnet.id
+    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.frontend.id
   }
@@ -143,7 +77,7 @@ resource "azurerm_network_interface" "mongodb" {
 
   ip_configuration {
     name                          = "mongodb"
-    subnet_id                     = azurerm_subnet.shared_subnet.id
+    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.mongodb.id
   }
@@ -201,7 +135,7 @@ resource "azurerm_network_interface" "catalogue" {
 
   ip_configuration {
     name                          = "catalogue"
-    subnet_id                     = azurerm_subnet.shared_subnet.id
+    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.catalogue.id
   }
@@ -259,7 +193,7 @@ resource "azurerm_network_interface" "redis" {
 
   ip_configuration {
     name                          = "redis"
-    subnet_id                     = azurerm_subnet.shared_subnet.id
+    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.redis.id
   }
@@ -317,7 +251,7 @@ resource "azurerm_network_interface" "user" {
 
   ip_configuration {
     name                          = "user"
-    subnet_id                     = azurerm_subnet.shared_subnet.id
+    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.user.id
   }
@@ -375,7 +309,7 @@ resource "azurerm_network_interface" "cart" {
 
   ip_configuration {
     name                          = "cart"
-    subnet_id                     = azurerm_subnet.shared_subnet.id
+    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.cart.id
   }
@@ -433,7 +367,7 @@ resource "azurerm_network_interface" "mysql" {
 
   ip_configuration {
     name                          = "mysql"
-    subnet_id                     = azurerm_subnet.shared_subnet.id
+    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.mysql.id
   }
@@ -491,7 +425,7 @@ resource "azurerm_network_interface" "shipping" {
 
   ip_configuration {
     name                          = "shipping"
-    subnet_id                     = azurerm_subnet.shared_subnet.id
+    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.shipping.id
   }
@@ -549,7 +483,7 @@ resource "azurerm_network_interface" "rabbitmq" {
 
   ip_configuration {
     name                          = "rabbitmq"
-    subnet_id                     = azurerm_subnet.shared_subnet.id
+    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.rabbitmq.id
   }
@@ -607,7 +541,7 @@ resource "azurerm_network_interface" "payment" {
 
   ip_configuration {
     name                          = "payment"
-    subnet_id                     = azurerm_subnet.shared_subnet.id
+    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.payment.id
   }
@@ -665,7 +599,7 @@ resource "azurerm_network_interface" "dispatch" {
 
   ip_configuration {
     name                          = "dispatch"
-    subnet_id                     = azurerm_subnet.shared_subnet.id
+    subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.dispatch.id
   }
