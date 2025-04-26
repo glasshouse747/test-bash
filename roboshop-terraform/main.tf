@@ -15,7 +15,7 @@ resource "azurerm_virtual_network" "shared_network" {
 resource "azurerm_subnet" "shared_subnet" {
   name                 = "shared-subnet"
   resource_group_name  = "my-first-rg"
-  virtual_network_name = "shared_network"
+  virtual_network_name = "shared-network"
   address_prefixes = ["10.0.1.0/24"]
 }
 
