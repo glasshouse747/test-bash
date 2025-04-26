@@ -5,28 +5,28 @@ provider "azurerm" {
 
 # VIRTUAL NETWORK
 
-resource "azurerm_virtual_network" "shared-network" {
+resource "azurerm_virtual_network" "shared_network" {
   name                = "shared-network"
   address_space       = ["10.0.0.0/16"]
   location            = "UK West"
   resource_group_name = "my-first-rg"
 }
 
-resource "azurerm_subnet" "shared-subnet" {
+resource "azurerm_subnet" "shared_subnet" {
   name                 = "shared-subnet"
   resource_group_name  = "my-first-rg"
   virtual_network_name = "shared-network"
   address_prefixes = ["10.0.1.0/24"]
 }
 
-resource "azurerm_subnet_network_security_group_association" "shared-nsg" {
-  subnet_id = azurerm_subnet.shared-subnet.id
-  network_security_group_id = azurerm_network_security_group.shared-nsg.id
+resource "azurerm_subnet_network_security_group_association" "shared_nsg" {
+  subnet_id = azurerm_subnet.shared_subnet.id
+  network_security_group_id = azurerm_network_security_group.shared_nsg.id
 }
 
 # NETWORK SECURITY GROUP
 
-resource "azurerm_network_security_group" "shared-nsg" {
+resource "azurerm_network_security_group" "shared_nsg" {
   name                = "shared-nsg"
   location            = "UK West"
   resource_group_name = "my-first-rg"
