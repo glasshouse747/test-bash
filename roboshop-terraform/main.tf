@@ -19,7 +19,7 @@ resource "azurerm_subnet" "shared-subnet" {
   address_prefixes = ["10.0.1.0/24"]
 }
 
-resource "azurerm_subnet_network_security_group_association" "shared-nsg" {
+resource "azurerm_subnet_network_security_group_association" "shared-nsga" {
   subnet_id = azurerm_subnet.shared-subnet.id
   network_security_group_id = azurerm_network_security_group.shared-nsg.id
 }
