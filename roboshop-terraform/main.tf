@@ -35,7 +35,6 @@ resource "azurerm_network_interface" "frontend" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.frontend.id
   }
-  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
 }
 
 resource "azurerm_virtual_machine" "frontend" {
@@ -94,7 +93,6 @@ resource "azurerm_network_interface" "mongodb" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.mongodb.id
   }
-  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
 }
 
 resource "azurerm_virtual_machine" "mongodb" {
@@ -153,7 +151,6 @@ resource "azurerm_network_interface" "catalogue" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.catalogue.id
   }
-  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
 }
 
 resource "azurerm_virtual_machine" "catalogue" {
@@ -212,7 +209,6 @@ resource "azurerm_network_interface" "redis" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.redis.id
   }
-  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
 }
 
 resource "azurerm_virtual_machine" "redis" {
@@ -271,7 +267,6 @@ resource "azurerm_network_interface" "user" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.user.id
   }
-  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
 }
 
 resource "azurerm_virtual_machine" "user" {
@@ -330,7 +325,6 @@ resource "azurerm_network_interface" "cart" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.cart.id
   }
-  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
 }
 
 resource "azurerm_virtual_machine" "cart" {
@@ -389,7 +383,6 @@ resource "azurerm_network_interface" "mysql" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.mysql.id
   }
-  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
 }
 
 resource "azurerm_virtual_machine" "mysql" {
@@ -448,7 +441,6 @@ resource "azurerm_network_interface" "shipping" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.shipping.id
   }
-  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
 }
 
 resource "azurerm_virtual_machine" "shipping" {
@@ -507,7 +499,6 @@ resource "azurerm_network_interface" "rabbitmq" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.rabbitmq.id
   }
-  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
 }
 
 resource "azurerm_virtual_machine" "rabbitmq" {
@@ -566,7 +557,6 @@ resource "azurerm_network_interface" "payment" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.payment.id
   }
-  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
 }
 
 resource "azurerm_virtual_machine" "payment" {
@@ -625,7 +615,6 @@ resource "azurerm_network_interface" "dispatch" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.dispatch.id
   }
-  network_security_group_id = data.azurerm_network_security_group.existing_nsg.id
 }
 
 resource "azurerm_virtual_machine" "dispatch" {
