@@ -69,7 +69,11 @@ output "c1" {
 }
 
 ## Variable from command line
-variable "cli" {}
+# variable "cli" {}
+
+variable "cli" {
+  default = 100
+}
 
 output "command-line-variable" {
   value = var.cli
