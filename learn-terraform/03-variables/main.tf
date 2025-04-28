@@ -78,3 +78,10 @@ variable "cli" {
 output "command-line-variable" {
   value = var.cli
 }
+
+## Variable from terraform.tfvars
+variable "v1" {}
+
+  output "v1" {
+    value = var.v1
+  }
