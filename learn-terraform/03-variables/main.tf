@@ -87,5 +87,5 @@ variable "v1" {}
   }
 variable "env" {}
 output "env" {
-  value = "var.env"
+  value = var.env
 }
