@@ -69,7 +69,7 @@ output "c1" {
 }
 
 ## Variable from command line
-# variable "cli" {}
+# variable "cli" {} (to change default via cli use -var cli=var
 
 variable "cli" {
   default = 100
