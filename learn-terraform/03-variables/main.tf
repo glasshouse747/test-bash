@@ -5,3 +5,65 @@ variable "x" {
 output "x" {
   value = var.x
 }
+
+## Variable Dta Types
+# string
+# number
+# boolean
+# string require double quotes, number and boolean does not require quotes
+
+variable "str" {
+  default = "Hello"
+}
+
+variable "num" {
+  default = 20
+}
+
+variable "mybool" {
+  default = true
+}
+
+
+# When we access the variable, irrespective of type you can access it with var.var-name. Also need to access that with ${var.ver-name)
+
+output "str" {
+  value ="${var.str}, Steve"
+}
+
+## Variable Types
+
+# Normal
+# List
+# Map/Dictionary
+
+variable "a" {
+  default = "This is a normal Variable"
+}
+
+# The values in a list can comprise of multiple data types
+
+variable "b" {
+  default = [
+    1,
+    2,
+    "abc",
+    false
+  ]
+}
+
+variable "c" {
+  default = {
+    x = 10
+    y = 20
+    z = "abc"
+  }
+}
+
+output "b1" {
+  value = var.b[0]
+}
+
+output "c1" {
+  value = var.c["x"]
+}
