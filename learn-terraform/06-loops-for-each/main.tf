@@ -14,6 +14,7 @@ variable "nodes" {
     }
   }
 }
+
 resource "azurerm_network_interface" "privateip" {
   for_each            = var.nodes
   name                = "${each.key}-ip"
