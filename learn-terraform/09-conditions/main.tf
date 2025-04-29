@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    null = {
+      source  = "hashicorp/null"
+      version = "3.2.3"
+    }
+  }
+}
 # resource "null_resource" "test" {}
 
 # output "test" {
@@ -40,3 +48,24 @@ resource "azurerm_network_interface" "privateip" {
 # Condition is all about picking the right hand side value of attribute or argument in terraform. We can use that as advantage to determine whether we can
 # Create a resource or not with loop combinations
 # Count - 0 condition ? : 0
+
+
+variable "demo" {
+  default = true
+}
+
+variable "demo1" {
+  default = false
+}
+
+resource "null_resource" "demo" {
+  count = var.demo ? 1 : 0
+}
+
+resource "null_resource" "demo1" {
+  count = var.demo1 ? 1 : 0
+}
+
+
+
+
