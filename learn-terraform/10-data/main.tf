@@ -3,7 +3,7 @@ data "azurerm_resource_group" "example" {
 }
 
 output "id" {
-  value = data.azurerm_resource_group.example
+  value = data.azurerm_resource_group.example.location
 }
 
 provider "azurerm" {
