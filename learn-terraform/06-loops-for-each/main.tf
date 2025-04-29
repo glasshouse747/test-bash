@@ -29,12 +29,12 @@ resource "azurerm_network_interface" "privateip" {
 }
 
 resource "azurerm_virtual_machine" "test" {
-  for_each            = var.nodes
-  name                = "${each.key}-vm"
-  location            = "UK West"
-  resource_group_name = "my-first-rg"
+  for_each              = var.nodes
+  name                  = "${each.key}-vm"
+  location              = "UK West"
+  resource_group_name   = "my-first-rg"
   network_interface_ids = [azurerm_network_interface.privateip[each.key].id]
-  vm_size             = "Standard_B2s"
+  vm_size               = each.value["vm_size"]
 
   delete_os_disk_on_termination = true
 
