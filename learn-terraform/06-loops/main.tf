@@ -2,6 +2,9 @@ resource "null_resource" "test" {
   count = 10
 }
 
+# Count resource attributes are referred with resourcelabel.locallabel[*]
+# (* denoting all values, if we want first value then [0])
+
 # output "test" {
 #   value = null_resource.test
 # }
