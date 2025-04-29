@@ -36,3 +36,7 @@ resource "azurerm_network_interface" "privateip" {
 
 # condition ? true_val : false_val
 # Conditions in terraform are meant to pick a value, Not meant to run a resource or not
+
+# Condition is all about picking the right hand side value of attribute or argument in terraform. We can use that as advantage to determine whether we can
+# Create a resource or not with loop combinations
+# Count - 0 condition ? : 0
