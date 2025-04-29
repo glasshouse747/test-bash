@@ -29,7 +29,8 @@ resource "azurerm_network_interface" "privateip" {
   ip_configuration {
     name                          = "test-ip"
     subnet_id                     = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/virtualNetworks/test-network/subnets/default"
-    private_ip_address_allocation = length(each.value["private_ip_address_allocation"]) > 0 ? each.value["private_ip_address_allocation"] : "Dynamic"
+    # private_ip_address_allocation = length(each.value["private_ip_address_allocation"]) > 0 ? each.value["private_ip_address_allocation"] : "Dynamic"
+    private_ip_address_allocation = length(try(each.value["private_ip_address_allocation"], "") > 0 ? each.value["private_ip_address_allocation"] : "Dynamic"
   }
 }
 
