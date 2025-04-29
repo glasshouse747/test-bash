@@ -46,7 +46,7 @@ resource "azurerm_virtual_machine" "test" {
   name                = "${var.nodes[count.index]}-vm"
   location            = "UK West"
   resource_group_name = "my-first-rg"
-  network_interface_ids = "/subscriptions/eb986b09-9743-4aa1-b10f-53da04d8708c/resourceGroups/my-first-rg/providers/Microsoft.Network/networkInterfaces/test"
+  network_interface_ids = [azurerm_network_interface.privateip[count.index].id]
   vm_size             = "Standard_B2s"
 
   delete_os_disk_on_termination = true
