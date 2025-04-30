@@ -1,5 +1,4 @@
-resource "null_resource" "test" {
-}
+resource "null_resource" "test" {}
 
 terraform {
   backend "azurerm" {
