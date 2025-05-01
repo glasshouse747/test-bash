@@ -18,7 +18,7 @@ resource "azurerm_resource_group" "tfstate" {
 
 resource "azurerm_storage_account" "tfstate" {
   name                     = "mydevopshop"
-  resource_group_name      = my-first-rg
+  resource_group_name      = "my-first-rg"
   location                 = "UK West"
   account_tier             = "Standard"
   account_replication_type = "GRS"
