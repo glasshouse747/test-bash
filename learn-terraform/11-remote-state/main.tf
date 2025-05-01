@@ -11,12 +11,12 @@
 #   }
 # }
 
-resource "azurerm_resource_group" "tfstate" {
+resource "azurerm_resource_group" "tfgroup" {
   name     = "my-first-rg"
   location = "UK West"
 }
 
-resource "azurerm_storage_account" "tfstate" {
+resource "azurerm_storage_account" "tfstorage" {
   name                     = "mydevopshop"
   resource_group_name      = "my-first-rg"
   location                 = "UK West"
@@ -24,7 +24,7 @@ resource "azurerm_storage_account" "tfstate" {
   account_replication_type = "GRS"
 }
 
-resource "azurerm_storage_container" "tfstate" {
+resource "azurerm_storage_container" "tfscontainer" {
   name                  = "roboshop-state-files"
   container_access_type = "private"
 }
