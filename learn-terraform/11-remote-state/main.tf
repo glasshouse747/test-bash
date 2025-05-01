@@ -16,11 +16,6 @@ provider "azurerm" {
 #   }
 # }
 
-resource "azurerm_resource_group" "tfgroup" {
-  name     = "my-first-rg"
-  location = "UK West"
-}
-
 resource "azurerm_storage_account" "tfstorage" {
   name                     = "mydevopshop"
   resource_group_name      = "my-first-rg"
