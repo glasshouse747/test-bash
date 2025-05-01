@@ -1,3 +1,7 @@
+provider "azurerm" {
+  features {}
+}
+
 # resource "null_resource" "test" {}
 #
 # terraform {
@@ -26,6 +30,5 @@ resource "azurerm_storage_account" "tfstorage" {
 
 resource "azurerm_storage_container" "tfscontainer" {
   name                  = "roboshop-state-files"
-  storage_account_name  = "roboshopstatefiles"
   container_access_type = "private"
 }
