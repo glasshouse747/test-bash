@@ -26,5 +26,6 @@ resource "azurerm_storage_account" "tfstorage" {
 
 resource "azurerm_storage_container" "tfscontainer" {
   name                  = "roboshop-state-files"
+  storage_account_name  = "roboshop-state-files"
   container_access_type = "private"
 }
