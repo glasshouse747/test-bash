@@ -30,5 +30,6 @@ resource "azurerm_storage_account" "tfstorage" {
 
 resource "azurerm_storage_container" "tfscontainer" {
   name                  = "roboshop-state-files"
+  storage_account_id    = "eb986b09-9743-4aa1-b10f-53da04d8708c"
   container_access_type = "private"
 }
