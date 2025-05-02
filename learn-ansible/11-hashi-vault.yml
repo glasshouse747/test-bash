@@ -1,5 +1,5 @@
 - name: Retrieve vault password
-  host: localhost
+  hosts: localhost
   connection: local
   tasks:
     - name: Get secret KV
