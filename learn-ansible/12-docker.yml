@@ -1,0 +1,12 @@
+- name: Docker
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Restart a container
+      community.docker.docker_container:
+        name: nginx-demo
+        image: docker.io/nginx
+        state: started
+        restart: true
+        ports:
+          - "1992:80"
